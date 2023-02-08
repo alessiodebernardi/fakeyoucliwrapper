@@ -71,6 +71,11 @@ if($status == "complete_success") {
     $url = $RESULT_URL . $responseArray["state"]["maybe_public_bucket_wav_audio_path"];
 
     $fileDir = __DIR__ . "/audio/";
+
+    if (!file_exists($fileDir)) {
+        mkdir($fileDir, 0777, true);
+    }
+
     $file_name = basename($url);
     file_put_contents($fileDir . $file_name, file_get_contents($url));
 
