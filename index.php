@@ -80,7 +80,13 @@ if($status == "complete_success") {
     file_put_contents($fileDir . $file_name, file_get_contents($url));
 
     $wav = $fileDir . $file_name;
-    $mp3 = $fileDir . $file_name . ".mp3";
+    $outputFilename =
+        time()
+        . '-'
+        . strtoupper(str_replace(' ', '', $input_voice))
+        . '-'
+        . str_replace(' ', '_', substr($input_text,0,40));
+    $mp3 = $fileDir . $outputFilename . ".mp3";
     $output = shell_exec(sprintf('lame -q0 -b128 %s %s 2>/dev/null', $wav, $mp3));
 
     unlink($wav);
