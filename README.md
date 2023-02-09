@@ -1,6 +1,10 @@
 # Introduction
 Simple and useful tool to create FakeYou.com voices and download them in mp3 format directly via CLI. In seconds.
 
+# Requirements
+- Make
+- Docker
+
 # Usage
 ### 1. Build the image
 ```
